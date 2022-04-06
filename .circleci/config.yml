@@ -77,15 +77,11 @@ jobs:
         - run:
             name: "failed_job"
             command: return 1
-    
-    failure:
-      docker:
-        - image: circleci/node:13.8.0
-      steps:
         - run: 
             name: "print_failure"
             command: echo "hello failure"
             when: on_fail
+      
     
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -97,4 +93,3 @@ workflows:
           requires: [write-value]
       - print-pipeline-id
       - failed-job
-      - failure
