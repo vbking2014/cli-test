@@ -68,7 +68,15 @@ jobs:
         - image: circleci/node:13.8.0
       steps:
         - checkout
-        - print_pipeline_idsss
+        - print_pipeline_id
+
+    failed-job:
+      docker:
+        - image: circleci/node:13.8.0
+      steps:
+        - run:
+            name: "failed_job"
+            command: return 1
     
     failure:
       docker:
@@ -88,4 +96,5 @@ workflows:
       - print-value:
           requires: [write-value]
       - print-pipeline-id
+      - failed-job
       - failure
