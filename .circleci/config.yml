@@ -3,11 +3,11 @@
 version: 2.1
 commands:
   print_pipeline_id:
-    Description:  "prints the Circle CI Workflow ID from its environment variable named $CIRCLE_WORKFLOW_ID to the console"
+    description:  "prints the Circle CI Workflow ID from its environment variable named $CIRCLE_WORKFLOW_ID to the console"
     parameters:
       To:
         type: string
-        deafault: $CIRCLE_WORKFLOW_ID
+        default: $CIRCLE_WORKFLOW_ID
     steps:
       - run: echo << parameters.to >>
 
