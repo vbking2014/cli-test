@@ -43,9 +43,9 @@ jobs:
             name: "save_hello_world_output"
             command: echo "Testing output" > output.txt
         - persist_to_workspace:
-              root: /tmp/workspace
+              root: ~/
               paths:
-                - target/output.txt
+                - output.txt
   
     print-value:
       docker:
@@ -53,7 +53,7 @@ jobs:
       steps:
         - checkout
         - attach_workspace:
-            at: /tmp/workspace
+            at: ~/
         - run:
             name: "print_output_file"
             command: cat output.txt
